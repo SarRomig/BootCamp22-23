@@ -1,0 +1,81 @@
+h1 {
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    letter-spacing: 5px;
+    font-weight: bold;
+    color: rgb(255, 252, 232);
+    font-size: 4rem;
+}
+
+body{
+    background-color: rgb(200, 213, 190);
+}
+
+div {
+    position: relative;
+}
+form {
+    padding-left: 5%;
+}
+button {
+    margin-top: 40px;
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: absolute;
+    background-color: rgb(5, 55, 8) ;
+    color: rgb(255, 252, 232);
+    border-radius: 25px;
+    border-style: none;
+    border-width: 3px;
+    border-color: rgb(255, 252, 232);
+    display: inline-block;
+    margin:auto;
+}
+button:hover{
+    background-color:rgb(160, 175, 161) ;
+    cursor:pointer;
+}
+button:active {
+    background-color: rgb(160, 175, 161);
+    transform: translateY(4px);
+  }
+
+.misc-text{
+    font-family:Arial, Helvetica, sans-serif;
+    color:rgb(255, 252, 232);
+    font-size: 1.5rem;
+    text-align: center;
+}
+input {
+    background-color: rgb(255, 252, 232);
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing:content-box;
+    border-radius: 10px;
+    border-style: none;
+    color:rgb(4,100, 8) ;
+}
+input[type=submit] {
+    position: relative;
+    display: in-line block;
+    margin : 0 auto;
+    cursor:pointer;
+    background-color:rgb(160, 175, 161) ;
+    text-transform: uppercase;
+}
+input[type=submit]:active{
+    transform: translateY(4px);
+}
+.meme-text {
+    position: absolute;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white; 
+}
+
+#top-image-text{
+    position: top;
+}
+#bottom-image-text{
+    position: top;
+}

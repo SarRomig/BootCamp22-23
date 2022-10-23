@@ -5,7 +5,6 @@
 
 h1 {
     color: rgb(31, 69, 1);
-    background: rgb(225, 234, 237);
     text-align: center;
     letter-spacing: .5rem;
     font-size: 3.5rem;
@@ -51,11 +50,23 @@ li {
     color: rgb(68, 69, 67);
     font-size: 2rem;
     letter-spacing: .25rem;
+    width: 50%;
+    text-align: right;
 }
+
 li:hover {
-    color: rgb(225, 234, 237);
+    color: rgb(190, 208, 214);
 }
 #action-text {
     color: rgb(68, 69, 67);  
     padding-bottom: 10px;
+}
+body {
+    background-color: rgb(255, 252, 232);
+    background-image: linear-gradient(to left, rgb(196, 223, 188), rgb(218, 234, 224))
+}
+input {
+    border-radius: 5px;
+    border-style: none;
+    padding: 10px;
 }

@@ -26,35 +26,36 @@ form.addEventListener("submit", function (event) {
         listItem.remove();
     })
 
-    const billButton = document.querySelector("#bill");
-    const billIcon = document.querySelector("#bill-icon")
-    const phoneButton = document.querySelector("#phone");
-    const phoneIcon = document.querySelector("#phone-icon")
+    // const billButton = document.querySelector("#bill");
+    // const billIcon = document.querySelector("#bill-icon")
+    // const phoneButton = document.querySelector("#phone");
+    // const phoneIcon = document.querySelector("#phone-icon")
 
-    const questionButton = document.querySelector("#question");
-    const questionIcon = document.querySelector("#phone-icon")
+    // const questionButton = document.querySelector("#question");
+    // const questionIcon = document.querySelector("#phone-icon")
 
-    const homeButton = document.querySelector("#home");
-    const homeIcon = document.querySelector("#home-icon")
+    // const homeButton = document.querySelector("#home");
+    // const homeIcon = document.querySelector("#home-icon")
 
-    const emailButton = document.querySelector("#email");
-    const emailIcon = document.querySelector("#email-icon")
+    // const emailButton = document.querySelector("#email");
+    // const emailIcon = document.querySelector("#email-icon")
 
-    const errandButton = document.querySelector("#errand");
-    const errandIcon = document.querySelector("#errand-icon")
+    // const errandButton = document.querySelector("#errand");
+    // const errandIcon = document.querySelector("#errand-icon")
 
-    for (let icons of form) {
-    if (billButton.checked === true) {
-        listItem.prepend(billIcon);
-    }
-    else if (phoneButton.checked === true) {
-        listItem.prepend(phoneIcon);
-    }
-    //this makes the icon go away at top... need to keep them there and add them to list.
+    // for (let icons of form) {
+    // if (billButton.checked === true) {
+    //     listItem.prepend(billIcon);
+    //     billButton.createElement(billIcon);
+    // }
+    // else if (phoneButton.checked === true) {
+    //     listItem.prepend(phoneIcon);
+    // }
+    // //this makes the icon go away at top... need to keep them there and add them to list.
     
-}
-    storedList.push(listItem);
-    localStorage.setItem("storedList", JSON.stringify("storedList"))
+    // }
+    // storedList.push(listItem);
+    // localStorage.setItem("storedList", JSON.stringify("storedList"))
 
     toDoList.append(listItem);
     form.reset();
