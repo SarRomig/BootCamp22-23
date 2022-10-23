@@ -14,17 +14,12 @@ button.onclick = function(e) {
 
 completedForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (memeImageInput) {
-        let memeLocation = document.querySelector("div");
-        memeImage.setAttribute("src", memeImageInput);
-    }
-    else {
-        alert("Please enter an image URL");
-    }
+    let memeLocation = document.querySelector(".div");
 
     topImageText.innerText = topText.value;
     bottomImageText.innerText = bottomText.value;
-    memeLocation.append(memeImage, topImageText, bottomImageText);
-    
+    memeImage.innerHTML = memeImageInput.value;
+
+    memeLocation.append(memeImage, topImageText, bottomImageText); //append = null
     completedForm.reset();
 })
