@@ -7,19 +7,22 @@ const bottomImageText = document.querySelector("#bottom-image-text");
 const memeImage = document.querySelector("#meme-image");
 const button = document.querySelector("button");
 
-button.onclick = function(e) {
-    e.target.finishedMeme.remove();
-};
 
 
 completedForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    let memeLocation = document.querySelector(".div");
-
+    let memeDiv = document.createElement("div");
     topImageText.innerText = topText.value;
     bottomImageText.innerText = bottomText.value;
     memeImage.innerHTML = memeImageInput.value;
+    memeImage.append(topImageText, bottomImageText);
 
-    memeLocation.append(memeImage, topImageText, bottomImageText); //append = null
+    memeDiv.innerHTML = memeImage;
+    document.querySelector("#meme-div").append(memeDiv);
     completedForm.reset();
+    button.onclick = function(e) {
+        e.target.memeDiv.remove();
+    };
 })
+
+

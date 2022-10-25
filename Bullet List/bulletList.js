@@ -2,10 +2,11 @@ const form = document.querySelector("form");
 const toDoList = document.getElementById("list-items-go-here");
 const storedListItem = JSON.parse(localStorage.getItem("forminput"));
 const formInput = document.querySelector("#list-submission");
-let storedList = [];
+let storedList = []; //doing this every time it refreshes so it's getting rid of previous stored items from previous refresh
+
 
 // function toDoLabel (item) {
-//     //need to identify the emoji (class="material-symbols-outlined") and pair that with the form submission based on whether or not it's associated radio button is checked.
+//     //need to identify the emoji (class="material-symbols-outlined") and pair that icon with the form submission based on whether or not it's associated radio button is checked.
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -25,6 +26,9 @@ form.addEventListener("submit", function (event) {
     listItem.addEventListener("dblclick", function(event){
         listItem.remove();
     })
+ //on click, need to find that value in localStorage and change it to false for line-through and true for none
+
+
 
     // const billButton = document.querySelector("#bill");
     // const billIcon = document.querySelector("#bill-icon")
@@ -54,18 +58,38 @@ form.addEventListener("submit", function (event) {
     // //this makes the icon go away at top... need to keep them there and add them to list.
     
     // }
-    // storedList.push(listItem);
-    // localStorage.setItem("storedList", JSON.stringify("storedList"))
+    let storageObject = {
+        toDoInfo: formInput.value,
+        toDoStatus: true,
+    }
+    storedList.push(storageObject);
+    localStorage.setItem("storedList", JSON.stringify(storedList))
 
     toDoList.append(listItem);
     form.reset();
 });
 
 function getFromLocalStorage() {
+    let todos = [];
     const reference = localStorage.getItem('storedList');
     // if reference exists
     if (reference) {
       // converts back to array and store it in todos array
-      todos = JSON.parse(storedList)
+      todos = JSON.parse(reference);
     }
+    return todos;
     };
+
+console.log(getFromLocalStorage());
+
+for (let items of getFromLocalStorage()) {
+    const listItem = document.createElement("li");
+    listItem.id = "list-items";
+    listItem.innerText = items.toDoInfo;
+
+    if (!items.toDoStatus) {
+        listItem.style.textDecoration = "line-through";
+    }
+
+    toDoList.append(listItem);
+};
