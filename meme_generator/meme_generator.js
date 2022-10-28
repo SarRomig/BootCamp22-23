@@ -4,9 +4,9 @@ const memeImageInput = document.querySelector("#url-input")
 const completedForm = document.querySelector("form");
 const memeLand = document.querySelector("#meme-land");
 
-//add multiple memes to the page
-//add button that removes a meme from the page
-//form reset values when form submitted
+//add multiple memes to the page --DONE
+//add button that removes a meme from the page --DONE
+//form reset values when form submitted --DONE
 
 completedForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -15,30 +15,32 @@ completedForm.addEventListener("submit", function (e) {
     memeImage.src = memeImageInput.value;
     let memeDiv = document.createElement("div");
     
-    let topImageText = document.createElement("div");
-    // topImageText.id("top-text");
+    let topImageDiv = document.createElement("div");
+    let topImageText = document.createTextNode("");
     topImageText = topSubmission.value;
+    topImageDiv.append(topImageText);
    
-    let bottomImageText = document.createElement("div");
-    // bottomImageText.id("bottom-text");
+    let bottomImageDiv = document.createElement("div");
+    let bottomImageText = document.createTextNode("");
     bottomImageText = bottomSubmission.value;
+    bottomImageDiv.append(topImageText);
     
     let removeBtn = document.createElement("button");
     let btnText = document.createTextNode("Remove This Meme");
     btnText.class = "form-text";
     removeBtn.appendChild(btnText);
     
-    let memeCount = 0;
-    for (memeCount = 1; memeCount <= 1; memeCount++) {
                 memeLand.append(memeDiv);
                 memeDiv.append(memeImage);
                 memeLand.append(topImageText, bottomImageText, removeBtn);
-    }
+
     completedForm.reset();
 
     removeBtn.addEventListener("click", function(e) {
-        memeDiv.remove();
-        memeLand.removeChild(topImageText, bottomImageText, removeBtn);
+        memeDiv.remove(); //this one works
+        topImageDiv.remove();
+        bottomImageDiv.remove();
+        removeBtn.remove(); //this works
     })
 
 })
