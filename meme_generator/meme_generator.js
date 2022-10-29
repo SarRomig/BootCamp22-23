@@ -10,38 +10,46 @@ const memeLand = document.querySelector("#meme-land");
 
 completedForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    
     let memeImage = document.createElement("img");
     memeImage.src = memeImageInput.value;
     let memeDiv = document.createElement("div");
+    memeLand.append(memeDiv);
+    memeDiv.appendChild(memeImage);
+    memeImage.id = "meme-image";
+    memeImage.classList.add("meme-land");
     
     let topImageDiv = document.createElement("div");
     let topImageText = document.createTextNode("");
     topImageText = topSubmission.value;
     topImageDiv.append(topImageText);
+    memeDiv.appendChild(topImageDiv);
+    topImageDiv.id = "top-text";
+    topImageDiv.classList.add("meme-text");
+    topImageDiv.classList.add("meme-land");
+    
    
     let bottomImageDiv = document.createElement("div");
     let bottomImageText = document.createTextNode("");
     bottomImageText = bottomSubmission.value;
-    bottomImageDiv.append(topImageText);
+    bottomImageDiv.append(bottomImageText);
+    memeDiv.appendChild(bottomImageDiv);
+    bottomImageDiv.id = "bottom-text";
+    bottomImageDiv.classList.add("meme-text");
+    bottomImageDiv.classList.add("meme-land");
     
     let removeBtn = document.createElement("button");
     let btnText = document.createTextNode("Remove This Meme");
-    btnText.class = "form-text";
+    btnText.class = "form-text"; //but this works
     removeBtn.appendChild(btnText);
-    
-                memeLand.append(memeDiv);
-                memeDiv.append(memeImage);
-                memeLand.append(topImageText, bottomImageText, removeBtn);
+    memeDiv.appendChild(removeBtn);
 
     completedForm.reset();
 
-    removeBtn.addEventListener("click", function(e) {
-        memeDiv.remove(); //this one works
+    removeBtn.addEventListener("click", function(e) { //working but not removing button
+        memeDiv.remove(); 
         topImageDiv.remove();
         bottomImageDiv.remove();
-        removeBtn.remove(); //this works
+        removeBtn.remove();
     })
 
 })
-//no methods are working on text divs, error throwing saying they're not nodes.
