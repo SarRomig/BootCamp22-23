@@ -79,7 +79,7 @@ input[type=submit]:active{
     position: absolute;
     transform: translate(-50%, -50%);
     font-size: 4rem;
-    top: 0;
+    top: 3rem;
     left: 50%;
     text-align: center;
 }

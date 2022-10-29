@@ -53,3 +53,7 @@ completedForm.addEventListener("submit", function (e) {
     })
 
 })
+
+
+//Stipulations:
+//Change font size to fit into meme image if text content of top or bottom is longer aka dynamically change font size.. this is a further step in the project: compare text content length with memeLand width, if longer (pixels?) then resizeText() <- dynamically changes text. Would listen for this on submission of text so it can go in the main function.
