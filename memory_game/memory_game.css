@@ -1,0 +1,69 @@
+#game div {
+    border: 1px solid black;
+    width: 15%;
+    height: 200px;
+    margin: 10px;
+    display: inline-block;
+  }
+  /* see below: is this how we add the case for both classes to be present in order for color to show up? */
+.flipped .red { 
+    background-color: red;
+  }
+.flipped .blue {
+    background-color: blue;
+  }
+.flipped  .green {
+    background-color: green;
+  }
+.flipped  .orange {
+    background-color: orange;
+  }
+.flipped  .purple {
+    background-color: purple;
+  }
+
+  h1{
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+  }
+  h2 {
+    text-align: center;
+    position: relative;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+  }
+
+  button {
+    border-radius: 10px;
+    position:relative;
+    background-color: hotpink;
+    color: white;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    font-size: 25px;
+    padding: 5px 15px;
+    transition-duration: 0.5s;
+    transform: translate(-50%, -50%);
+  }
+button:hover{
+    background-color: azure;
+    color: grey;
+}
+  button:active {
+    translate: (30x, 30y);
+  }
+
+  body{
+    background-image: url(http://csshint.com/wp-content/uploads/2020/01/CSS-Animated-Backgrounds-2.gif);
+    background-color: black;
+  }
+
+p {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 5rem;
+    position: absolute;
+    display: flex;
+
+}
