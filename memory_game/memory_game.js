@@ -8,7 +8,7 @@ let timeLeft = 60;
 let timeDisplay = document.querySelector("#timer");
 function gameOver() {
     clearInterval(timer)
-    alert("YOU RAN OUT OF TIME!")
+    alert("YOU RAN OUT OF TIME! GAME OVER")
 }
 function gameStart() {
     timer = setInterval(subtractTime, 1000);

@@ -22,19 +22,19 @@
     background-color: purple;
   }
 
-  h1{
+h1{
     text-align: center;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     color: white;
   }
-  h2 {
+h2 {
     text-align: center;
     position: relative;
     color: white;
     font-family:Verdana, Geneva, Tahoma, sans-serif
   }
 
-  button {
+button {
     border-radius: 10px;
     position:relative;
     background-color: hotpink;
