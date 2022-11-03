@@ -13,19 +13,11 @@ form.addEventListener("submit", function (event) {
     saveToDos(toDoText);
 
 
-    listItem.addEventListener("click", function (event) {
-        if (listItem.style.textDecoration === "none") {
-            listItem.style.textDecoration="line-through";
-            completedToDos(toDoText);
-        }
-        else {
-            listItem.style.textDecoration = "none";
-        }
-    })
+    listItem.addEventListener("click", onClick);
 
-    listItem.addEventListener("dblclick", function(event){
+    listItem.addEventListener("contextmenu", function(event){
         listItem.remove();
-        removeLocalToDos(toDoText);
+        removeLocalToDos(listItem);
     })
 
     toDoList.append(listItem);
@@ -60,22 +52,14 @@ function getFromLocalStorage() {
         completedToDos = JSON.parse(localStorage.getItem("completedToDos"));
     }
 
-    //load completed todos
     completedToDos.forEach(function(todo){
         const listItem = document.createElement("li");
         listItem.id = "list-items";
         listItem.innerText = todo;
-    
-         listItem.addEventListener("click", function (e) {
-                if (listItem.style.textDecoration === "none") {
-                    listItem.style.textDecoration="line-through";
-                }
-                else {
-                    listItem.style.textDecoration = "none";
-                }
-            })
+        listItem.style.textDecoration="line-through";
+         listItem.addEventListener("click", onClick);
         
-        listItem.addEventListener("dblclick", function(event){
+        listItem.addEventListener("contextmenu", function(event){
                 listItem.remove();
                 removeLocalToDos (todo);
             })
@@ -88,16 +72,9 @@ function getFromLocalStorage() {
     listItem.id = "list-items";
     listItem.innerText = todo;
 
-     listItem.addEventListener("click", function (e) {
-            if (listItem.style.textDecoration === "none") {
-                listItem.style.textDecoration="line-through";
-            }
-            else {
-                listItem.style.textDecoration = "none";
-            }
-        })
-    
-    listItem.addEventListener("dblclick", function(e){
+     listItem.addEventListener("click", onClick);
+
+    listItem.addEventListener("contextmenu", function(e){
             listItem.remove();
             removeLocalToDos (todo);
         })
@@ -109,20 +86,32 @@ function getFromLocalStorage() {
 
 function removeLocalToDos (todo) {
     let todos;
+    let completedToDos;
     if (localStorage.getItem("todos") === null) { //can create function for this but copying and pasting for now
         todos = [];
     }
     else {
         todos = JSON.parse(localStorage.getItem("todos"));
-    }
-
-    const removedToDo = todos.indexOf(todo); //searching for that element in the array in order to splice that element from the localStorage array
+        const removedToDo = todos.indexOf(todo); //searching for that element in the array in order to splice that element from the localStorage array
     todos.splice(removedToDo, 1);
     localStorage.setItem("todos", JSON.stringify(todos));
-}
+    }
+    
+    if (localStorage.getItem("completedToDos" === null)) {
+        completedToDos = [];
+    }
+    else {
+        completedToDos = JSON.parse(localStorage.getItem("completedToDos"));
+        const removedCompletedToDo = completedToDos.indexOf(todo);
+    completedToDos.splice(removedCompletedToDo, 1);
+    localStorage.setItem("completedToDos", JSON.stringify(completedToDos));
+    }
+    
+    }
+
 
 function completedToDos (todo) {
-    let completedToDos
+    let completedToDos;
     let todos;
     //check if we already have completedToDos and todos
     if (localStorage.getItem("todos") === null) {
@@ -131,11 +120,11 @@ function completedToDos (todo) {
     else {
         todos = JSON.parse(localStorage.getItem("todos"));
     }
-    if (localStorage.getItem("completedTodos") === null) {
+    if (localStorage.getItem("completedToDos") === null) {
         completedToDos = [];
     }
     else {
-        completedToDos = JSON.parse(localStorage.getItem("completedTodos"));
+        completedToDos = JSON.parse(localStorage.getItem("completedToDos"));
     }
     //if element doesn't exist
     if (!completedToDos.includes(todo)){
@@ -152,6 +141,49 @@ function completedToDos (todo) {
         localStorage.setItem("todos", JSON.stringify(todos));
     }
 }
+
+function onClick (event) {
+    let listItem = event.target;
+        if (listItem.style.textDecoration === "") {
+            listItem.style.textDecoration = "line-through";
+            completedToDos(listItem.innerText);
+        }
+        else {
+            listItem.style.textDecoration = "";
+            incompleteToDos(listItem.innerText);
+        }
+    }
+
+function incompleteToDos (todo) {
+    let completedToDos;
+    let todos;
+       if (localStorage.getItem("todos") === null) {
+        todos = [];
+    }
+    else {
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+    if (localStorage.getItem("completedToDos") === null) {
+        completedToDos = [];
+    }
+    else {
+        completedToDos = JSON.parse(localStorage.getItem("completedToDos"));
+    }
+    //if element does exist
+    if (completedToDos.includes(todo)){
+        todos.push(todo);
+        localStorage.setItem("todos", JSON.stringify(todos));
+        //delete from stored
+        const removedToDo = completedToDos.indexOf(todo); //searching for that element in the array in order to splice that element from the localStorage array
+        completedToDos.splice(removedToDo, 1);
+        localStorage.setItem("completedToDos", JSON.stringify(completedToDos));
+    }
+    else {
+        completedToDos.push(todo);
+        localStorage.setItem("completedToDos", JSON.stringify(completedToDos));
+    }
+}
+
     
 // function toDoLabel (item) {
 //     //need to identify the emoji (class="material-symbols-outlined") and pair that icon with the form submission based on whether or not it's associated radio button is checked.

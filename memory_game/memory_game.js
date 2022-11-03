@@ -100,7 +100,6 @@ function handleCardClick(event) {
         checkMatch(currentCard);
     }
 }
-
    
     // if(cardArr.length = 2 && cardArr[0] != cardArr[1]) { //only run checkMatch if 2 cards have been clicked
     // checkMatch(currentCard);
@@ -118,8 +117,7 @@ function checkMatch (card) {
         console.log(cardArr)
         if (cardArr[0].classList[0] === cardArr[1].classList[0]) { //can't read classList when there's only one clicked.
             alert("it's a match!")
-        }
-      
+        }   
     else {
         console.log("no match!"); //it's entering this else statement, not moving on to setTimeout
         setTimeout(function (e) {
@@ -129,7 +127,6 @@ function checkMatch (card) {
     }
 }
 }
-
 
 function returnToOriginal(arr) {
     for (let i = 0; i < arr.length; i++) {
