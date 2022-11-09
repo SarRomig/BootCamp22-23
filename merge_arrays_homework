@@ -1,6 +1,6 @@
 function mergeArrays(a, b) {
-  //need to read through both arrays and determine if there are duplicates, if there are, add key to count object with value
-  //increasing each time int is seen. Then, read through count object to determine if any keys are repeated, if so, compare values
+  //need to read through both arrays and determine if there are duplicates, if there are, add key to count object with value increasing 
+  //each time int is seen. Then, read through count object to determine if any keys are repeated, if so, compare values
   //if values are the same, add key to new arr, if values are not, do not add value. If a key is unique, add to new array.
   //if no duplicates of an int, add to new array (take care of this first, should be easiest)
   let newArr = [];
@@ -27,7 +27,8 @@ function mergeArrays(a, b) {
       }
     }
   }
-  //inspect key/value pairs in count object
+  //inspect key/value pairs in count object, if key doesn't exist anywhere else in object, add to newArr. If key is repeated, look at value, if
+  //values are the same, add to newArr. If values are different, don't add.
   for (let keys in count) {
     
     
